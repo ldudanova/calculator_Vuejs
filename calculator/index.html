@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator Vue.js</title>
+</head>
+<body>
+<div id="app" class="calculator" @keydown.enter="calc">
+        <div class="calculator__top">
+        <input class="output" type="text" v-model="result" placeholder="0"
+                    >
+        </div>
+    <div class="calculator__body">
+        <div class="btn__container">
+            <div class="btn__container_g1">
+                <button v-on:click="input(num)"  v-on:keydown.enter.prevent='calc' class="btn btn_num btn_sm" v-for="num in numbers">{{num}}</button>
+                <button v-on:click="calc()"  class="btn btn_num btn_lg">=</button>
+            </div>
+            <div class="btn__container_g2">
+                <button v-on:click="reset()" class="btn btn_op btn_sm">C</button>
+                <button v-on:click="input(op)" class="btn btn_op btn_sm" v-for="op in operations">{{op}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
